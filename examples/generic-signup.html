@@ -43,7 +43,7 @@
     }
 
 
-    form input
+    input
     {
         width: 100%;
         display: block;
@@ -74,6 +74,12 @@
         font-size: 16px;
         cursor: pointer;
         outline: none;
+    }
+
+    #signup-button
+    {
+        display: table;
+        margin: 30px auto 0 auto;
     }
 
     h1
@@ -313,9 +319,7 @@
     &lt;label for='password-confirm'&gt;Confirm Password&lt;/label&gt;
     &lt;input id=&quot;password-confirm&quot; type='password' placeholder='Confirm Password'&gt;&lt;/input&gt;
 
-    &lt;div style='text-align: center'&gt;
-        &lt;button id='signup-button'&gt;Sign Up&lt;/button&gt;
-    &lt;/div&gt;
+    &lt;button id='signup-button'&gt;Sign Up&lt;/button&gt;
 
 &lt;/div&gt;
 
@@ -481,9 +485,7 @@ function removeClass(el, name)
     <label for='password-confirm'>Confirm Password</label>
     <input id="password-confirm" type='password' placeholder='Confirm Password'></input>
 
-    <div style='text-align: center'>
-        <button id='signup-button'>Sign Up</button>
-    </div>
+    <button id='signup-button'>Sign Up</button>
 
 </div>
 
@@ -496,8 +498,8 @@ function removeClass(el, name)
 </div>
 
 
-<script src='/js/vendor/ThatValidator.js'></script>
-<script src='/js/vendor/Prism.js'></script>
+<script src='/ThatValidator/js/vendor/ThatValidator.js'></script>
+<script src='/ThatValidator/js/vendor/Prism.js'></script>
 <script>
 
 (function() {
