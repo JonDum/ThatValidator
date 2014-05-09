@@ -580,11 +580,13 @@ function removeClass(el, name)
 
                 '#password-confirm': {
 
+                    passwordField: document.getElementById('password'),
+
                     validations: function(field)
                     {
                         var errors = [];
 
-                        if(field.value !== field.parentNode.password.value)
+                        if(field.value !== this.passwordField.value)
                             errors.push("Passwords do not match.");
 
                         return errors;
