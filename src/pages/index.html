@@ -1,0 +1,192 @@
+<!doctype html>
+<!--[if lt IE 9]><html class="ie"><![endif]-->
+<!--[if gte IE 9]><!--><html><!--<![endif]-->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>ThatValidator</title>
+
+<!-- @include ../templates/head-tag.html -->
+
+</head>
+
+<body lang='en' class='index'>
+
+    <div class='hero'>
+
+        <div class='copy'>
+            <h1 class='logo' alt='ThatValidator'>ThatValidator</h1>
+            <p>Powerful and extensible form validation that doesn't suck</p>
+            <div id='download'>
+                <a href='' class='hollow green button'><i class='fa fa-download'></i>Download</a>
+                <span>Version 1.0.0 &mdash; development</span>
+            </div>
+            <a id='github-link' href='' class='hollow blue button mlm'><i class='fa fa-github'></i>View on Github</a>
+        </div>
+
+    </div>
+
+    <div id='features'>
+
+        <div class='container'>
+            <div class='three column grid'>
+                <div class='column'>
+                    <h3>Fast and lightweight<i class='fa fa-fighter-jet'></i></h3>
+                    <p>ThatValidator comes in at <strong>1.44kb</strong> gzipped and minified and has <strong>zero</strong> dependancies. ThatValidator respects your DOM with as little queries as possible and won't slow down your pages.</p>
+                </div>
+                <div class='column'>
+                    <h3>Highly Customizable<i class='fa fa-flask'></i></h3>
+                    <p>ThatValidator doesn't include a bunch of default styling you then have to override. It allows you to do whatever you need to do for any kind of form.</p>
+                </div>
+                <div class='column'>
+                    <h3>Clean HTML<i class='fa fa-code'></i></h3>
+                    <p>Most importantly, ThatValidator respects your DOM by not forcing you to clutter it with myriad <code>data-</code> attributes. It aims to keep your HTML clean and semantic while giving you powerful configuration through javascript.</p>
+                </div>
+            </div>
+        </div>
+
+        <i class='fa fa-angle-down'></i>
+
+    </div>
+
+    <section id='why'>
+
+        <h2>Why</h2>
+        <h3>Did you make yet another form validation library?</h3>
+
+        <div class='container mtl'>
+            <div class='two column grid'>
+                <div class='row'>
+                    <div class='column'>
+                        <p>Form validation isn't hard to hack together, but for complicated forms it can quickly become a mess. There's a definite benefit to keeping your event listeners organized and managing all the focus, blur, keypress/keyup events.</p>
+                    </div>
+                    <div class='column'>
+                        <p>Moreover, we think html should remain clean and semantic and that your form validation library shouldn't require jQuery or other dependencies. We also needed a form validator for our own website :).</p>
+                    </div>
+                </div>
+                <div class='row'>
+
+                    <div class='column'>
+                        <h2>HTML shouldn't look like this:</h2>
+
+                        <pre class='language-markup'>
+                        <code class='language-markup'>
+&lt;form&gt;
+    &lt;label for='language'&gt;Language&lt;/label&gt;
+    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;languages&quot; data-oregano-conditionalrequired='[&quot;[name=\&quot;question1\&quot;]:checked&quot;, &quot;yes&quot;]' data-oregano-validate-if-empty data-oregano-success-class=&quot;&quot; data-oregano-conditionalrequired-message=&quot;This value is required since you are a programmer!&quot; /&gt;
+
+    &lt;label for='why'&gt;Why?&lt;/label&gt;
+    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;why&quot; data-oregano-conditionalrequired='[&quot;[name=\&quot;question2\&quot;]:checked&quot;, &quot;no&quot;]' data-oregano-validate-if-empty data-oregano-success-class=&quot;&quot; data-oregano-conditionalrequired-message=&quot;This value is required since you do not eat dog food!&quot; /&gt;
+&lt;/form&gt;
+&lt;!-- What the heck, that's only 2 inputs! --&gt;
+                        </code>
+                        </pre>
+                    </div>
+                    <div class='column'>
+                        <h2>It should look like this:</h2>
+                        <pre class='language-markup'>
+                        <code class='language-markup'>
+&lt;form&gt;
+
+    &lt;label for='language'&gt;Language&lt;/label&gt;
+    &lt;input name='languages' type=&quot;text&quot;/&gt;
+
+    &lt;label for='why'&gt;Why?&lt;/label&gt;
+    &lt;input name=&quot;why&quot; type=&quot;text&quot;/&gt;
+
+&lt;/form&gt;
+&lt;!-- Ah, much better --&gt;
+                        </code>
+                        </pre>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id='example-usage'>
+
+        <h2>Ok, so how do I validate then</h2>
+        <h3>Here's an example ThatValidator configuration, highly annotated</h3>
+
+        <div class='container mtl'>
+
+            <pre class='language-javascript'>
+                <code class='language-javascript'>
+<!-- @include ../templates/examples/simple.js -->
+                </code>
+            </pre>
+
+        </div>
+        <div id='example-usage-fader'>
+            <span class='open'>expand<i class='fa fa-angle-down'></i></span>
+            <span class='closed'>collapse<i class='fa fa-angle-up'></i></span>
+        </div>
+
+    </section>
+
+    <section id='demos'>
+
+        <h2>A Demo Is Worth 1,000 lines of code</h2>
+        <h3>Here are a few examples that show the flexibility of ThatValidator</h3>
+
+        <div class='wrap'>
+
+            <div class='item'>
+                <a href='http://axosoft.com/get-started?ref=ThatValidator'>
+                <img src='images/example-thumbnails/axosoft-get-started.jpg'>
+                </a>
+                <div class='copy'>
+                    <h4><a href='http://axosoft.com/get-started?ref=ThatValidator'>30 Day Trial Form</a></h4>
+                    <p>Disclaimer: This is our trial form. Not trying to advertise it here, we just think it's a really awesome form.</p>
+                </div>
+            </div>
+            <div class='item'>
+                <a href='/examples/generic-signup'>
+                <img src='images/example-thumbnails/generic-signup.jpg'>
+                </a>
+                <div class='copy'>
+                    <h4><a href='/examples/generic-signup'>Generic Signup Form</a></h4>
+                    <p>Just your day-to-day signup form with nifty-difty validations using ThatValidator.</p>
+                </div>
+            </div>
+            <div class='item'>
+                <img src='http://placekitten.com/150/150'>
+                <div class='copy'>
+                    <h4>Coming Soon</h4>
+                    <p>More examples are on the way, but in the meantime here's a kitten.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id='installation'>
+
+        <h2>Ok, I'm sold</h2>
+        <h3>Now how do I use this thing?</h3>
+
+        <div class='wrap'>
+            <ol>
+                <li><a href=''>Download</a> ThatValidator.js and include it on your page (AMD/CJS is supported).</li>
+                <li>Create a validator for each form and start setting it up.<br/><code class='language-javascript' style='margin-left: 0'><pre>var myValidator = new ThatValidator(form, config)</pre></code><br/><small><em>tip</em>: you can reuse common validations across validators!</small></li>
+                <li>Use <code class='language-javascript'><pre>myValidator.isValid()</pre></code> to check if your form has been filled and has no errors &amp; use <code class='language-javascript'><pre>myValidator.validate(callback)</pre></code> to run through the validations again.</li>
+                <li>That's it. The rest is up to you. Check out the <a href=''>examples</a> for some sweet use cases, hit up the <a href='documentation'>documentation</a> or help out by <a href=''>contributing</a>.</li>
+            </ol>
+        </div>
+
+
+    </section>
+
+
+<!-- @include ../templates/footer.html -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,251 @@
+
+
+$exampleBGColor = #222628
+$bodyBGColor = #050508
+
+body.index
+    background $bodyBGColor url('/images/index-bg.jpg') 50% 0 no-repeat
+
+body.index.animated
+    animation-name bgAniLoop
+    animation-iteration-count infinite
+    animation-timing-function linear
+    animation-duration 20s
+
+body.index.animate
+    animation bgAni 3s ease 
+    animation-iteration-count 1
+    animation-fill-mode forwards
+
+.logo
+    width 373px
+    height 50px
+    image '/images/logo.png' 373px 50px
+    display inline-block
+    text-indent -9999px
+
+.hero
+    p
+        color fade-out(#fff, 0.3)
+        margin-top 10px
+        margin-bottom 50px
+
+    #download, #github-link
+        display inline-block
+        vertical-align top
+
+    #download a
+        margin-bottom 5px
+
+    #download span
+        display block
+        color #fff
+        font-size 1.2em
+        text-align center
+        letter-spacing 1px
+
+
+
+#features
+    padding 0 0 9em 0
+    color fade-out(#fff, 0.15)
+    color #E5F3FF
+
+    h3
+        border-bottom 1px solid fade-out(#fff, 0.85)
+        font-size 2.5em
+        margin-bottom 12px
+
+        .fa
+            margin-left 24px
+
+    p
+        font-size 1.6em
+        color fade-out(#fff, 0.25)
+
+    .animate & .column, .animate & > .fa
+        animation fadeIn 1s ease
+        animation-fill-mode forwards
+
+    .column
+        opacity 0
+
+    .column:nth-child(2)
+        animation-delay 0.5s
+
+    .column:nth-child(3)
+        animation-delay 1s
+
+    > .fa
+        display table
+        margin 50px auto -50px auto
+        opacity 0
+        font-size 1.4em
+        animation-delay 3s !important
+
+
+
+
+@keyframes fadeIn
+    0%
+        opacity 0
+    100%
+        opacity 1
+
+
+#why
+    background #1A1A1F
+
+    p
+        color #c3c3c3
+        margin-top 1em
+        font-size 1.6em
+        letter-spacing 0.4px
+        word-spacing 0.3px
+
+    .row h2
+        color #DBDBDB
+
+    pre
+        overflow visible
+        white-space pre-wrap
+
+#example-usage
+    background $exampleBGColor
+    position relative
+    max-height 600px
+    transition all 0.3s ease
+    overflow hidden
+
+    .closed
+        display none
+
+    &.hover
+        max-height 620px
+
+        #example-usage-fader
+            height 120px
+
+
+    &.open
+        max-height 320em
+        .closed
+            display inline-block
+        .open
+            display none
+
+
+    #example-usage-fader
+        content ''
+        color #fff
+        transition all 0.3s ease
+        position absolute
+        bottom 0
+        width 100%
+        height 100px
+        background linear-gradient(fade-out($exampleBGColor, 0.999), $exampleBGColor)
+        left 0
+        right 0
+        text-align center
+        cursor pointer
+        color fade-out(#fff, 0.3)
+
+        .fa
+            margin-left 6px
+
+        span
+            position absolute
+            bottom 10px
+            font-size 16px
+
+        &:hover
+            color fade-out(#fff, 0.6)
+
+
+
+
+
+.index
+    section
+        padding 9em 0
+
+        > h2, h3
+            text-align center
+
+        h2, h3, h4
+            color #fff
+
+        > h2
+            font-size 4.5em
+            font-weight 200
+            color #66d9ef
+
+        > h3
+            font-size 2em
+            font-weight 100
+            color #f8f8f2
+
+#demos
+    background #141B1F
+
+    .wrap
+        margin 50px auto
+        display table
+
+    .item
+        max-width 200px
+        vertical-align top
+        display inline-block
+        & + .item
+            margin-left 60px
+
+#installation
+    background #222B30
+    color #fff
+    font-size 1.4em
+
+    code
+        background fade-out(#000, 0.8)
+        padding 0.6em
+        margin 0.3em
+        border-radius 3px
+        font-size 0.85em
+
+    .wrap
+        width 80%
+        margin 60px auto 0 auto
+        max-width 800px
+        min-width 400px
+
+    li + li
+        margin-top 35px
+
+
+#made-by
+    background #fff
+    text-align center
+    font-size 2em
+    padding 3em 0
+
+    .axosoft-logo
+        margin-left 10px
+        vertical-align bottom
+
+.axosoft-logo
+    width 150px
+    height 40px
+    display inline-block
+    text-indent -9999px
+    image '/images/axosoft-logo-black.png' 150px 40px
+
+
+
+
+
+
+
+
+
+
+
+

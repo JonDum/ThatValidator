@@ -1,0 +1,153 @@
+
+
+html, body
+    @extend $bodyFont
+    // line-height 1.618
+    line-height 1.7
+    font-size 10px // base site font-size is 10px = 1em
+    color $textColor
+    @media $bp-mobile
+        font-size 8px
+
+h1
+    font-size 4.5em
+    @media $bp-mobile
+        font-size 4em
+
+h2
+    font-size 3em
+    @media $bp-mobile
+        font-size 3em
+
+h3
+    font-size 2.4em
+
+h4
+    font-size 1.8em
+
+h5
+    font-size 1.4em
+
+h6
+    font-size 1.2em
+
+
+h1, h2
+    line-height 1.3
+    font-family Lato
+
+h3, h4, h5, h5
+    font-family "Josefin Sans", sans-serif
+
+p, li, dt, dd
+    @extend $bodyFont
+    font-size $baseFontSize
+    margin-bottom 0.8em
+    strong
+        font-weight 600
+        &.dark
+            color #B1B1B1
+
+ol li
+    list-style decimal
+
+ul.list li
+    list-style square
+
+ol, ul.list
+    li
+        margin-left 2em
+        padding-left 0.5em
+        margin-right 2.5em
+
+dd, li //nesting lists? okay
+    ul, ol, dl
+        margin-top 0.8em
+    li, dd
+        font-size 1em
+
+dl.faq
+
+    dd
+      .dark &
+        color fade-out(#fff, 0.33)
+
+    dt
+        margin-bottom 0.5em
+        color #555
+        .dark &
+            color #fff
+
+    dd + dt
+        margin-top 2em
+
+h1, h2, h3, h4, h5, h6, p, li, dt, dd
+    em
+        font-style italic
+
+p.lead
+    font-size $largeFontSize
+
+a
+    text-decoration none
+    color $linkColor
+    transition 0.4s color ease
+    cursor pointer
+    border-bottom 1px dotted fade-out($linkColor, 0.7)
+    &:hover, &:focus
+        color $linkColorHover
+
+.white
+    color #fff
+
+small
+    font-size 75%
+
+p.small
+    font-size $smallFontSize
+
+
+code, pre
+    font-family monospace
+pre
+    font-size $baseFontSize
+
+//font awesome tweaks
+
+i[class*="fa-angle"]
+    font-size 90% 
+
+em i.fa-caret-right
+    margin-left 0.5em
+    margin-right 0.333em
+
+p i.fa-book
+    width 1.25em
+    text-align center
+
+
+//dark
+
+
+.dark
+
+    color #fff
+
+    h1, h2, h3, h4, h5, h6
+        color #fff
+
+    hgroup h4
+        color fade-out(#fff, 0.3)
+
+    blockquote
+        color fade-out(#fff, 0.2)
+
+    a:not(.button)
+        color #fff
+        opacity 0.66
+        transition opacity 0.4s
+        &:hover,&:focus
+            opacity 1
+
+
+

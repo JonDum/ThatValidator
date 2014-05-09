@@ -1,0 +1,67 @@
+
+@keyframes bgAni
+    0%
+        background-position-y 0px
+    100%
+        background-position-y -400px
+
+
+@keyframes bgAniLoop
+    0%
+        background-position-y -400px
+    10%
+        background-position-y -440px
+    20%
+        background-position-y -355px
+    30%
+        background-position-y -405px
+    40%
+        background-position-y -325px
+    50%
+        background-position-y -410px
+    60%
+        background-position-y -380px
+    70%
+        background-position-y -300px
+    80%
+        background-position-y -405px
+    90% 
+        background-position-y -330px
+    100%
+        background-position-y -400px
+
+
+@keyframes blink
+    from
+        opacity 0
+    to
+        opacity 1
+
+.blink
+  animation-name blink
+  animation-iteration-count 2
+  animation-timing-function linear
+  animation-duration 0.35s
+
+
+.pulse
+    animation pulse 0.4s ease
+
+
+@keyframes pulse
+    0%
+        transform scale(1)
+    30%
+        transform scale(1.1)
+    100%
+        transform scale(1)
+
+
+// collapse
+
+.collapsable
+    transition max-height 0.4s ease
+    overflow hidden
+    &.collapsed
+        max-height 0 !important
+

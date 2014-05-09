@@ -1,0 +1,99 @@
+
+$inputStyles
+    outline none
+    padding 1em
+    font-size 1.33em
+    border 1px solid #e0e0e0
+    color #454545
+    transition border 0.4s ease
+    background-color white
+
+    &.error
+        border-color red
+
+
+input
+    @extend $inputStyles
+    &[type='hidden']
+        display none
+
+textarea
+    @extend $inputStyles
+
+
+.grid.survey
+    > .column, > .row > .column
+        @media $bp-mobile-small
+            margin-top 0 !important
+    input, textarea, select
+        width 100%
+        @media $bp-mobile-small
+            margin-bottom 1em
+    input[type='radio']
+        width auto
+    label
+        font-size $smallFontSize
+        display block
+        @media $bp-mobile-small
+            margin-bottom 0.5em
+        &.radio-label
+            display inline-block
+            margin-right 1em
+
+
+    .twelve.column label
+        margin-bottom 0.5em
+
+    select
+        height 30px
+        line-height 30px
+        font-size $smallFontSize
+        background-color white
+        border 1px solid #e0e0e0
+        color #454545
+        display inline-block
+
+
+
+
+
+
+
+placeholder-style()
+    color #B1B1B1
+    transition opacity 0.3s ease
+    line-height 1
+    position relative
+    -webkit-font-smoothing antialiased;
+    top 1px
+
+
+placeholder-focus-style()
+    opacity 0.4
+
+
+input::-webkit-input-placeholder
+    placeholder-style()
+
+input:-moz-placeholder
+    placeholder-style()
+
+input::-moz-placeholder
+    placeholder-style()
+
+input:-ms-input-placeholder
+    placeholder-style()
+
+
+
+input:focus::-webkit-input-placeholder
+    placeholder-focus-style()
+
+input:focus:-moz-placeholder
+    placeholder-focus-style()
+
+input:focus::-moz-placeholder
+    placeholder-focus-style()
+
+input:focus:-ms-input-placeholder
+    placeholder-focus-style()

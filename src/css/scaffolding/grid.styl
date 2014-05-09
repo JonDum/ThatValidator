@@ -1,0 +1,850 @@
+// # Semantic - Grid
+// http://github.com/jlukic/semantic-ui/
+//
+//
+// Copyright 2013 Contributors
+// Released under the MIT license
+// http://opensource.org/licenses/MIT
+
+.grid {
+  display: block;
+  text-align: left;
+  font-size: 0em;
+  padding: 0%;
+  margin: 0 -1.5%;
+}
+
+// .grid.relaxed
+// {
+//     margin: 0 -5%;
+// }
+
+body > .grid {
+  margin-left: 0%;
+  margin-right: 0%;
+}
+
+.grid:after,
+.row:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+// -------------------
+// Columns
+// -------------------
+
+.grid > .column,
+.grid > .row > .column {
+  display: inline-block;
+  text-align: left;
+  font-size: 1rem;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  vertical-align: top;
+}
+
+.grid > .vertically.relaxed.row
+{
+    margin: 6% 0;
+    padding: 6% 0;
+}
+
+// -------------------
+// Rows
+// -------------------
+
+.grid > .row {
+  display: block;
+  width: 100% !important;
+  margin-top: 1.5%;
+  padding: 1.5% 0% 0%;
+  font-size: 0rem;
+}
+
+// .grid.relaxed > .row {
+//   margin-top: 5%;
+//   padding: 5% 0% 0%;
+// }
+
+.grid > .row:first-child {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+// -------------------
+// Content
+// -------------------
+
+// .grid > .row > img,
+// .grid > .row > .column > img {
+//   max-width: 100%;
+// }
+
+.grid .column > .segment:only-child {
+  margin: 0em;
+}
+
+// ******************************
+// Variations
+// ******************************
+
+// -----------------------
+// Page Grid (Responsive)
+// -------------------------
+
+.page.grid {
+  min-width: 320px;
+  margin-left: 0%;
+  margin-right: 0%;
+}
+
+@media only screen and (max-width: 998px) {
+  .page.grid {
+    padding: 0% 4%;
+  }
+}
+
+@media only screen and (min-width: 998px) {
+  .page.grid {
+    padding: 0% 8%;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .page.grid {
+    padding: 0% 13%;
+  }
+}
+
+@media only screen and (min-width: 1750px) {
+  .page.grid {
+    padding: 0% 18%;
+  }
+}
+
+@media only screen and (min-width: 2000px) {
+  .page.grid {
+    padding: 0% 23%;
+  }
+}
+
+// -------------------
+// Column Width
+// --------------------
+
+// Sizing Combinations
+
+
+$columns = 12
+
+.grid > .row > .one.wide.column,
+.grid > .one.wide.column {
+  width: (100/$columns*1)%;
+}
+
+.grid > .row > .two.wide.column,
+.grid > .two.wide.column {
+  width: (100/$columns*2)%;
+}
+
+.grid > .row > .three.wide.column,
+.grid > .three.wide.column {
+  width: (100/$columns*3)%;
+}
+
+.grid > .row > .four.wide.column,
+.grid > .four.wide.column {
+  width: (100/$columns*4)%;
+}
+
+.grid > .row > .five.wide.column,
+.grid > .five.wide.column {
+  width: (100/$columns*5)%;
+}
+
+.grid > .row > .six.wide.column,
+.grid > .six.wide.column {
+  width: (100/$columns*6)%;
+}
+
+.grid > .row > .seven.wide.column,
+.grid > .seven.wide.column {
+  width: (100/$columns*7)%;
+}
+
+.grid > .row > .eight.wide.column,
+.grid > .eight.wide.column {
+  width: (100/$columns*8)%;
+}
+
+.grid > .row > .nine.wide.column,
+.grid > .nine.wide.column {
+  width: (100/$columns*9)%;
+}
+
+.grid > .row > .ten.wide.column,
+.grid > .ten.wide.column {
+  width: (100/$columns*10)%;
+}
+
+.grid > .row > .eleven.wide.column,
+.grid > .eleven.wide.column {
+  width: (100/$columns*11)%;
+}
+
+.grid > .row > .twelve.wide.column,
+.grid > .twelve.wide.column {
+  width: (100/$columns*12)%;
+}
+
+
+// -------------------
+// Column Count
+// --------------------
+
+// Standard 
+
+.grid > .column,
+.grid > .row > .column {
+  width: 6.25%;
+}
+
+// Assume full width with one column 
+
+.one.column.grid > .row > .column,
+.one.column.grid > .column,
+.grid > .one.column.row > .column {
+  width: 100%;
+}
+
+.two.column.grid > .row > .column,
+.two.column.grid > .column,
+.grid > .two.column.row > .column {
+  width: 50%;
+}
+
+.three.column.grid > .row > .column,
+.three.column.grid > .column,
+.grid > .three.column.row > .column {
+  width: 33.3333%;
+}
+
+.four.column.grid > .row > .column,
+.four.column.grid > .column,
+.grid > .four.column.row > .column {
+  width: 25%;
+}
+
+.five.column.grid > .row > .column,
+.five.column.grid > .column,
+.grid > .five.column.row > .column {
+  width: 20%;
+}
+
+.six.column.grid > .row > .column,
+.six.column.grid > .column,
+.grid > .six.column.row > .column {
+  width: 16.66667%;
+}
+
+.seven.column.grid > .row > .column,
+.seven.column.grid > .column,
+.grid > .seven.column.row > .column {
+  width: 14.2857%;
+}
+
+.eight.column.grid > .row > .column,
+.eight.column.grid > .column,
+.grid > .eight.column.row > .column {
+  width: 12.5%;
+}
+
+.nine.column.grid > .row > .column,
+.nine.column.grid > .column,
+.grid > .nine.column.row > .column {
+  width: 11.1111%;
+}
+
+.ten.column.grid > .row > .column,
+.ten.column.grid > .column,
+.grid > .ten.column.row > .column {
+  width: 10%;
+}
+
+.eleven.column.grid > .row > .column,
+.eleven.column.grid > .column,
+.grid > .eleven.column.row > .column {
+  width: 9.0909%;
+}
+
+.twelve.column.grid > .row > .column,
+.twelve.column.grid > .column,
+.grid > .twelve.column.row > .column {
+  width: 8.3333%;
+}
+
+.thirteen.column.grid > .row > .column,
+.thirteen.column.grid > .column,
+.grid > .thirteen.column.row > .column {
+  width: 7.6923%;
+}
+
+.fourteen.column.grid > .row > .column,
+.fourteen.column.grid > .column,
+.grid > .fourteen.column.row > .column {
+  width: 7.1428%;
+}
+
+.fifteen.column.grid > .row > .column,
+.fifteen.column.grid > .column,
+.grid > .fifteen.column.row > .column {
+  width: 6.6666%;
+}
+
+.sixteen.column.grid > .row > .column,
+.sixteen.column.grid > .column,
+.grid > .sixteen.column.row > .column {
+  width: 6.25%;
+}
+
+// Assume full width with one column 
+
+.grid > .column:only-child,
+.grid > .row > .column:only-child {
+  width: 100%;
+}
+
+// ----------------------
+// Relaxed
+// -----------------------
+
+.grid.relaxed {
+  margin: 0 -5%;
+}
+
+.grid.relaxed > .row {
+  margin-top: 5%;
+  padding: 5% 0% 0%;
+}
+
+.relaxed.grid > .column,
+.relaxed.grid > .row > .column {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+// somehow this is better code, to undo relaxed
+
+.grid.relaxed.vertically {
+  margin: 0 -1.5%;
+}
+.grid.relaxed.vertically > .column,
+.grid.relaxed.vertically > .row > .column {
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+}
+
+.grid.relaxed.horizontally > .row {
+  margin-top: 1.5%;
+  padding: 1.5% 0% 0%;
+}
+
+
+// ----------------------
+// "Floated"
+// -----------------------
+
+.grid .left.floated.column {
+  float: left;
+}
+
+.grid .right.floated.column {
+  float: right;
+}
+
+// ----------------------
+// Divided
+// -----------------------
+
+.divided.grid,
+.divided.grid > .row {
+  display: table;
+  width: 100%;
+  margin-left: 0% !important;
+  margin-right: 0% !important;
+}
+
+.divided.grid > .column:not(.row),
+.divided.grid > .row > .column {
+  display: table-cell;
+  -webkit-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.8);
+  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.8);
+}
+
+.divided.grid > .column.row {
+  display: table;
+}
+
+.divided.grid > .column:first-child,
+.divided.grid > .row > .column:first-child {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* Vertically Divided */
+
+.vertically.divided.grid > .row {
+  -webkit-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1), 0px -2px 0px 0px rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1), 0px -2px 0px 0px rgba(255, 255, 255, 0.8) !important;
+}
+
+.vertically.divided.grid > .row > .column,
+.vertically.divided.grid > .column:not(.row),
+.vertically.divided.grid > .row:first-child {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+// ----------------------
+// Celled
+// -----------------------
+
+.celled.grid {
+  display: table;
+  width: 100%;
+  margin-left: 0% !important;
+  margin-right: 0% !important;
+  -webkit-box-shadow: 0px 0px 0px 1px #DFDFDF;
+  box-shadow: 0px 0px 0px 1px #DFDFDF;
+}
+
+.celled.grid > .row,
+.celled.grid > .column.row,
+.celled.grid > .column.row:first-child {
+  display: table;
+  width: 100%;
+  margin-top: 0em;
+  padding-top: 0em;
+  -webkit-box-shadow: 0px -1px 0px 0px #dfdfdf;
+  box-shadow: 0px -1px 0px 0px #dfdfdf;
+}
+
+.celled.grid > .column:not(.row),
+.celled.grid > .row > .column {
+  display: table-cell;
+  padding: 0.75em;
+  -webkit-box-shadow: -1px 0px 0px 0px #dfdfdf;
+  box-shadow: -1px 0px 0px 0px #dfdfdf;
+}
+
+.celled.grid > .column:first-child,
+.celled.grid > .row > .column:first-child {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.celled.page.grid {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+// ----------------------
+// Horizontally Centered
+// -----------------------
+
+// Vertical Centered 
+
+.left.aligned.grid,
+.left.aligned.grid > .row > .column,
+.left.aligned.grid > .column,
+.grid .left.aligned.column,
+.grid > .left.aligned.row > .column {
+  text-align: left;
+}
+
+.center.aligned.grid,
+.center.aligned.grid > .row > .column,
+.center.aligned.grid > .column,
+.grid .center.aligned.column,
+.grid > .center.aligned.row > .column {
+  text-align: center;
+}
+
+.right.aligned.grid,
+.right.aligned.grid > .row > .column,
+.right.aligned.grid > .column,
+.grid .right.aligned.column,
+.grid > .right.aligned.row > .column {
+  text-align: right;
+}
+
+// ----------------------
+// Vertically Centered
+// -----------------------
+
+// Vertical Centered 
+
+.top.aligned.grid,
+.top.aligned.grid > .row > .column,
+.top.aligned.grid > .column,
+.grid .top.aligned.column,
+.grid > .top.aligned.row > .column {
+  vertical-align: top;
+}
+
+.middle.aligned.grid,
+.middle.aligned.grid > .row > .column,
+.middle.aligned.grid > .column,
+.grid .middle.aligned.column,
+.grid > .middle.aligned.row > .column {
+  vertical-align: middle;
+}
+
+.bottom.aligned.grid,
+.bottom.aligned.grid > .row > .column,
+.bottom.aligned.grid > .column,
+.grid .bottom.aligned.column,
+.grid > .bottom.aligned.row > .column {
+  vertical-align: bottom;
+}
+
+// ----------------------
+// Equal Height Columns
+// -----------------------
+
+.grid > .equal.height.row {
+  display: table;
+  width: 100%;
+  table-layout: fixed; // hurr ie/firefox bug with images
+}
+
+.grid > .equal.height.row > .column {
+  display: table-cell;
+}
+
+// ----------------------
+// Only (Device)
+// -----------------------
+
+// Mobile Only 
+
+@media only screen and (max-width: 768px) {
+  .mobile.only.grid,
+  .grid > .mobile.only.row {
+    display: block !important;
+  }
+
+  .grid > .row > .mobile.only.column {
+    display: inline-block !important;
+  }
+
+  .divided.mobile.only.grid,
+  .celled.mobile.only.grid,
+  .divided.mobile.only.grid .row,
+  .celled.mobile.only.grid .row,
+  .divided.grid .mobile.only.row,
+  .celled.grid .mobile.only.row,
+  .grid .mobile.only.equal.height.row,
+  .mobile.only.grid .equal.height.row {
+    display: table !important;
+  }
+
+  .divided.grid > .row > .mobile.only.column,
+  .celled.grid > .row > .mobile.only.column,
+  .divided.mobile.only.grid > .row > .column,
+  .celled.mobile.only.grid > .row > .column,
+  .divided.mobile.only.grid > .column,
+  .celled.mobile.only.grid > .column {
+    display: table-cell !important;
+  }
+  .grid .left.floated.column,
+  .grid .right.floated.column {
+    float: none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .mobile.only.grid,
+  .grid > .mobile.only.row,
+  .grid > .row > .mobile.only.column {
+    display: none;
+  }
+}
+
+// Tablet Only 
+
+@media only screen and (min-width: 768px) and (max-width: 998px) {
+  .tablet.only.grid,
+  .grid > .tablet.only.row {
+    display: block !important;
+  }
+
+  .grid > .row > .tablet.only.column {
+    display: inline-block !important;
+  }
+
+  .divided.tablet.only.grid,
+  .celled.tablet.only.grid,
+  .divided.tablet.only.grid .row,
+  .celled.tablet.only.grid .row,
+  .divided.grid .tablet.only.row,
+  .celled.grid .tablet.only.row,
+  .grid .tablet.only.equal.height.row,
+  .tablet.only.grid .equal.height.row {
+    display: table !important;
+  }
+
+  .divided.grid > .row > .tablet.only.column,
+  .celled.grid > .row > .tablet.only.column,
+  .divided.tablet.only.grid > .row > .column,
+  .celled.tablet.only.grid > .row > .column,
+  .divided.tablet.only.grid > .column,
+  .celled.tablet.only.grid > .column {
+    display: table-cell !important;
+  }
+}
+
+@media only screen and (max-width: 768px), (min-width: 998px) {
+  .tablet.only.grid,
+  .grid > .tablet.only.row,
+  .grid > .row > .tablet.only.column {
+    display: none;
+  }
+}
+
+// Computer Only 
+
+@media only screen and (min-width: 998px) {
+  .computer.only.grid,
+  .grid > .computer.only.row {
+    display: block !important;
+  }
+
+  .grid > .row > .computer.only.column {
+    display: inline-block !important;
+  }
+
+  .divided.computer.only.grid,
+  .celled.computer.only.grid,
+  .divided.computer.only.grid .row,
+  .celled.computer.only.grid .row,
+  .divided.grid .computer.only.row,
+  .celled.grid .computer.only.row,
+  .grid .computer.only.equal.height.row,
+  .computer.only.grid .equal.height.row {
+    display: table !important;
+  }
+
+  .divided.grid > .row > .computer.only.column,
+  .celled.grid > .row > .computer.only.column,
+  .divided.computer.only.grid > .row > .column,
+  .celled.computer.only.grid > .row > .column,
+  .divided.computer.only.grid > .column,
+  .celled.computer.only.grid > .column {
+    display: table-cell !important;
+  }
+}
+
+@media only screen and (max-width: 998px) {
+  .computer.only.grid,
+  .grid > .computer.only.row,
+  .grid > .row > .computer.only.column {
+    display: none;
+  }
+}
+
+// -------------------
+// Doubles, check em
+// --------------------
+
+/* Mobily Only */
+@media only screen and (max-width : 767px) {
+  .two.column.doubling.grid > .row > .column,
+  .two.column.doubling.grid > .column,
+  .grid > .two.column.doubling.row > .column {
+    width: 100%;
+  }
+  .three.column.doubling.grid > .row > .column,
+  .three.column.doubling.grid > .column,
+  .grid > .three.column.doubling.row > .column {
+    width: 100%;
+  }
+  .four.column.doubling.grid > .row > .column,
+  .four.column.doubling.grid > .column,
+  .grid > .four.column.doubling.row > .column {
+    width: 100%;
+  }
+  .five.column.doubling.grid > .row > .column,
+  .five.column.doubling.grid > .column,
+  .grid > .five.column.doubling.row > .column {
+    width: 100%;
+  }
+  .six.column.doubling.grid > .row > .column,
+  .six.column.doubling.grid > .column,
+  .grid > .six.column.doubling.row > .column {
+    width: 50%;
+  }
+  .seven.column.doubling.grid > .row > .column,
+  .seven.column.doubling.grid > .column,
+  .grid > .seven.column.doubling.row > .column {
+    width: 50%;
+  }
+  .eight.column.doubling.grid > .row > .column,
+  .eight.column.doubling.grid > .column,
+  .grid > .eight.column.doubling.row > .column {
+    width: 50%;
+  }
+  .nine.column.doubling.grid > .row > .column,
+  .nine.column.doubling.grid > .column,
+  .grid > .nine.column.doubling.row > .column {
+    width: 50%;
+  }
+  .ten.column.doubling.grid > .row > .column,
+  .ten.column.doubling.grid > .column,
+  .grid > .ten.column.doubling.row > .column {
+    width: 50%;
+  }
+  .twelve.column.doubling.grid > .row > .column,
+  .twelve.column.doubling.grid > .column,
+  .grid > .twelve.column.doubling.row > .column {
+    width: 33.3333333333333%;
+  }
+  .fourteen.column.doubling.grid > .row > .column,
+  .fourteen.column.doubling.grid > .column,
+  .grid > .fourteen.column.doubling.row > .column {
+    width: 33.3333333333333%;
+  }
+  .sixteen.column.doubling.grid > .row > .column,
+  .sixteen.column.doubling.grid > .column,
+  .grid > .sixteen.column.doubling.row > .column {
+    width: 25%;
+  }
+}
+
+/* Tablet Only */
+@media only screen and (min-width : 768px) and (max-width : 998px) {
+  .two.column.doubling.grid > .row > .column,
+  .two.column.doubling.grid > .column,
+  .grid > .two.column.doubling.row > .column {
+    width: 100%;
+  }
+  .three.column.doubling.grid > .row > .column,
+  .three.column.doubling.grid > .column,
+  .grid > .three.column.doubling.row > .column {
+    width: 50%;
+  }
+  .four.column.doubling.grid > .row > .column,
+  .four.column.doubling.grid > .column,
+  .grid > .four.column.doubling.row > .column {
+    width: 50%;
+  }
+  .five.column.doubling.grid > .row > .column,
+  .five.column.doubling.grid > .column,
+  .grid > .five.column.doubling.row > .column {
+    width: 33.3333333%;
+  }
+  .six.column.doubling.grid > .row > .column,
+  .six.column.doubling.grid > .column,
+  .grid > .six.column.doubling.row > .column {
+    width: 33.3333333%;
+  }
+  .eight.column.doubling.grid > .row > .column,
+  .eight.column.doubling.grid > .column,
+  .grid > .eight.column.doubling.row > .column {
+    width: 33.3333333%;
+  }
+  .eight.column.doubling.grid > .row > .column,
+  .eight.column.doubling.grid > .column,
+  .grid > .eight.column.doubling.row > .column {
+    width: 25%;
+  }
+  .nine.column.doubling.grid > .row > .column,
+  .nine.column.doubling.grid > .column,
+  .grid > .nine.column.doubling.row > .column {
+    width: 25%;
+  }
+  .ten.column.doubling.grid > .row > .column,
+  .ten.column.doubling.grid > .column,
+  .grid > .ten.column.doubling.row > .column {
+    width: 20%;
+  }
+  .twelve.column.doubling.grid > .row > .column,
+  .twelve.column.doubling.grid > .column,
+  .grid > .twelve.column.doubling.row > .column {
+    width: 16.6666666%;
+  }
+  .fourteen.column.doubling.grid > .row > .column,
+  .fourteen.column.doubling.grid > .column,
+  .grid > .fourteen.column.doubling.row > .column {
+    width: 14.28571428571429%;
+  }
+  .sixteen.column.doubling.grid > .row > .column,
+  .sixteen.column.doubling.grid > .column,
+  .grid > .sixteen.column.doubling.row > .column {
+    width: 12.5%;
+  }
+}
+
+// -------------------
+// Stackable
+// --------------------
+
+@media only screen and (max-width: 480px) { // default 768px
+  .stackable.grid {
+    display: block !important;
+    padding: 0em;
+  }
+  .stackable.grid.relaxed {
+    margin: 0 -1.5%;
+  }
+
+  .grid.stackable > .row {
+    margin-top: 0 !important;
+  }
+
+  .grid.stackable.relaxed > .row {
+    padding-top: 0 !important;
+  }
+
+  .stackable.grid > .row > .column,
+  .stackable.grid > .column {
+    display: block !important;
+    width: auto !important;
+    //margin: 1.5em 5% 0em !important;
+    //padding: 1.5em 0em 0em !important;
+    margin: 1.5em 0 0 !important;
+    padding: 1.5em 1.5% 0 !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  .stackable.divided.grid .column,
+  .stackable.celled.grid .column {
+    border-top: 1px dotted rgba(0, 0, 0, 0.1);
+  }
+
+  .stackable.grid > .row:first-child > .column:first-child,
+  .stackable.grid > .column:first-child,
+  .stackable.grid.no-margin > .row > .column,
+  .stackable.grid.no-margin > .column {
+    margin-top: 0em !important;
+    padding-top: 0em !important;
+  }
+
+  .stackable.divided.grid > .row:first-child > .column:first-child,
+  .stackable.celled.grid > .row:first-child > .column:first-child,
+  .stackable.divided.grid > .column:first-child,
+  .stackable.celled.grid > .column:first-child {
+    border-top: none !important;
+  }
+
+// Remove pointers from vertical menus 
+
+  .stackable.grid .vertical.pointing.menu .item:after {
+    display: none;
+  }
+}

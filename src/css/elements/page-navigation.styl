@@ -1,0 +1,16 @@
+.content section.navigation
+    border-top 1px solid $lightGreyBorder
+    background $lightGreyBorder !important
+    p
+        margin 0
+        font-size $largeFontSize
+    .column p
+            text-align center
+    .six.wide.column
+        &:first-of-type
+            text-align left
+        &:last-of-type
+            text-align right
+        @media $bp-mobile-small
+            &:first-of-type, &:last-of-type
+                text-align center

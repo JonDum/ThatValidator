@@ -1,0 +1,135 @@
+
+
+.promo
+    font-weight 600
+
+    &.blue
+        color $blue !important
+        &:hover
+            color lighten($blue, 10) !important
+    &.green
+        color $green !important
+        &:hover
+            color lighten($green, 10) !important
+    &.orange
+        color $orange !important
+        &:hover
+            color lighten($orange, 10) !important
+
+
+.button, button
+    border-radius 2px
+    padding 0.6em 1.8em
+    color #fff
+    transition 0.4s background ease
+    font-size 2em
+    cursor pointer
+    display inline-block
+    text-align center
+    outline none
+    margin 0.5em 0
+    border none
+    @media $bp-mobile
+        font-size 1.8em
+
+    i.fa
+        margin-right 10px
+        margin-left -10px
+
+    &:hover,&:focus
+        color #fff
+
+    &.blue
+        background $blue
+        border 1px solid $blue
+        &:hover
+            background lighten($blue, 10)
+    &.green
+        background $green
+        border 1px solid $green
+        &:hover
+            background lighten($green, 10)
+    &.orange
+        background $orange
+        border 1px solid $orange
+        &:hover
+            background lighten($orange, 10)
+
+    &.small
+        font-size 1.5em
+
+    &.white
+        color #555
+        border 1px solid #ccc
+        background linear-gradient(#fff, #f7f7f7)
+        &:hover
+            border-color #B3C6DF
+            background linear-gradient(#fff, #F5F9FF)
+
+    &.disabled
+        cursor default
+        background #f0f0f0
+        border none
+        &:hover
+            background #f0f0f0
+
+    &.active
+        cursor default
+
+    &.hollow
+        &.green
+            background fade-out($green, 0.999)
+            border 1px solid fade-out($green, 0.5)
+            &:hover
+                background fade-out($green, 0.9)
+        &.blue
+            background fade-out($blue, 0.999)
+            border 1px solid fade-out($blue, 0.5)
+            &:hover
+                background fade-out($blue, 0.9)
+
+
+
+.utility.button, button.utility
+    color #454545
+    border-radius 99em
+    padding 0.33em 1em
+    font-size 1.5em
+    background rgba(0,0,0,0)
+    background #f7f7f7
+    border 1px solid #dbdbdb
+    transition all 0.3s ease
+
+    &:hover:not(.active), &:focus:not(.active)
+        background #f0f0f0
+        border-color #bbb
+
+    &.hollow
+        background-color transparent
+        &:hover, &:focus
+            background-color rgba(255,255,255,0.2)
+            border-color #bbb
+
+    &.active
+        color #fff
+        text-shadow 0 0 3px fade-out(#fff, 0.5)
+        background $axosoftGreen
+        border-color $axosoftGreen
+
+    &.active, &.active:hover, &.active:focus
+        color #fff
+        background $axosoftGreen
+        border-color $axosoftGreen
+
+    .dark &.hollow
+        color #fff
+
+.button.fw, button.fw
+    width 100%
+    display block
+
+
+
+
+
+

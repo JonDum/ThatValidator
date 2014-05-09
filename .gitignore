@@ -1,0 +1,5 @@
+.DS_Store
+.htaccess
+node_modules/
+build/
+temp/

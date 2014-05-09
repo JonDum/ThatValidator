@@ -1,0 +1,650 @@
+<!doctype html>
+<!--[if lt IE 9]><html class="ie"><![endif]-->
+<!--[if gte IE 9]><!--><html><!--<![endif]-->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>ThatValidator Example - Generic Signup</title>
+
+    <style>
+
+    * { box-sizing: border-box }
+
+    body
+    {
+        background: #f0f0f0;
+        font-family: Helvetica, sans-serif;
+        font-size: 12px;
+    }
+
+    #source
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #141414;
+        padding: 3em;
+        overflow: auto;
+    }
+
+    #signup-form
+    {
+        position: absolute;
+        z-index: 5;
+        background: #f0f0f0;
+        padding: 3em 9em;
+        border-radius: 4px;
+        right: 35px;
+        top: 20px;
+        width: 500px;
+    }
+
+
+    form input
+    {
+        width: 100%;
+        display: block;
+        padding: 1.3em;
+        background: #F7F7F7;
+        border: 1px solid #c9c9c9;
+        border-radius: 3px;
+        font-size: 14px;
+        outline: none;
+        transition: all 0.3s ease;
+    }
+
+    label
+    {
+        margin-top: 2em;
+        display: block;
+        color: #777;
+    }
+
+    button
+    {
+        background: #0EA32C;
+        border: none;
+        padding: 1em 2em;
+        color: #fff;
+        border-radius: 5px;
+        margin-top: 2em;
+        font-size: 16px;
+        cursor: pointer;
+        outline: none;
+    }
+
+    h1
+    {
+        color: #666;
+    }
+
+    input.error
+    {
+        border: 1px solid red;
+    }
+
+    span.error
+    {
+        color: red;
+    }
+
+    .valid
+    {
+        border-color: green;
+    }
+
+    #notes
+    {
+        margin: 0 auto;
+        width: 480px;
+    }
+
+    #notes li + li
+    {
+        margin-top: 1em;
+    }
+
+    </style>
+    <style>
+
+    /* http://prismjs.com/download.html?themes=prism-twilight&languages=markup */
+    /**
+     * prism.js Twilight theme
+     * Based (more or less) on the Twilight theme originally of Textmate fame.
+     * @author Remy Bach
+     */
+    code[class*="language-"],
+    pre[class*="language-"] {
+        color: white;
+        direction: ltr;
+        font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        text-align: left;
+        text-shadow: 0 -.1em .2em black;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+        tab-size: 4;
+
+        -webkit-hyphens: none;
+        -moz-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
+    }
+
+    /* Code blocks */
+    pre[class*="language-"] {
+        border-radius: .5em;
+        margin: .5em 0;
+    }
+
+    pre[class*="language-"]::selection {
+        background:hsl(200, 4%, 16%); /* #282A2B */
+    }
+
+    /* Text Selection colour */
+    pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+        text-shadow: none;
+        background: hsla(0,0%,93%,0.15); /* #EDEDED */
+    }
+
+    pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection, code[class*="language-"] ::selection {
+        text-shadow: none;
+        background: hsla(0,0%,93%,0.15); /* #EDEDED */
+    }
+
+    /* Inline code */
+    :not(pre) > code[class*="language-"] {
+        border-radius: .3em;
+        border: .13em solid hsl(0,0%,33%); /* #545454 */
+        box-shadow: 1px 1px .3em -.1em black inset;
+        padding: .15em .2em .05em;
+    }
+
+    .token.comment,
+    .token.prolog,
+    .token.doctype,
+    .token.cdata {
+        color: hsl(0, 0%, 47%); /* #777777 */
+    }
+
+    .token.punctuation {
+        opacity: .7;
+    }
+
+    .namespace {
+        opacity: .7;
+    }
+
+    .token.tag,
+    .token.boolean,
+    .token.number {
+        color: hsl(14, 58%, 55%); /* #CF6A4C */
+    }
+
+    .token.keyword,
+    .token.property,
+    .token.selector,
+    .token.constant,
+    .token.symbol,
+    .token.builtin {
+        color:hsl(53, 89%, 79%); /* #F9EE98 */
+    }
+    .token.attr-name,
+    .token.attr-value,
+    .token.string,
+    .token.operator,
+    .token.entity,
+    .token.url,
+    .language-css .token.string,
+    .style .token.string,
+    .token.variable {
+        color:hsl(76, 21%, 52%); /* #8F9D6A */
+    }
+
+    .token.atrule {
+        color:hsl(218, 22%, 55%); /* #7587A6 */
+    }
+
+    .token.regex,
+    .token.important {
+        color: hsl(42, 75%, 65%); /* #E9C062 */
+    }
+
+    .token.important {
+        font-weight: bold;
+    }
+
+    .token.entity {
+        cursor: help;
+    }
+    pre[data-line] {
+        padding: 1em 0 1em 3em;
+        position: relative;
+    }
+
+    /* Markup */
+    .language-markup .token.tag,
+    .language-markup .token.attr-name,
+    .language-markup .token.punctuation  {
+        color: hsl(33, 33%, 52%); /* #AC885B */
+    }
+
+    /* Make the tokens sit above the line highlight so the colours don't look faded. */
+    .token {
+        position:relative;
+        z-index:1;
+    }
+    .line-highlight {
+        background: -moz-linear-gradient(left, hsla(0, 0%, 33%,.1) 70%, hsla(0, 0%, 33%,0)); /* #545454 */
+        background: -o-linear-gradient(left, hsla(0, 0%, 33%,.1) 70%, hsla(0, 0%, 33%,0)); /* #545454 */
+        background: -webkit-linear-gradient(left, hsla(0, 0%, 33%,.1) 70%, hsla(0, 0%, 33%,0)); /* #545454 */
+        background: hsla(0, 0%, 33%, 0.25); /* #545454 */
+        background: linear-gradient(left, hsla(0, 0%, 33%,.1) 70%, hsla(0, 0%, 33%,0)); /* #545454 */
+        border-bottom:1px dashed hsl(0, 0%, 33%); /* #545454 */
+        border-top:1px dashed hsl(0, 0%, 33%); /* #545454 */
+        left: 0;
+        line-height: inherit;
+        margin-top: 0.75em; /* Same as .prism’s padding-top */
+        padding: inherit 0;
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+        white-space: pre;
+        z-index:0;
+    }
+    .line-highlight:before,
+    .line-highlight[data-end]:after {
+        background-color: hsl(215, 15%, 59%); /* #8794A6 */
+        border-radius: 999px;
+        box-shadow: 0 1px white;
+        color: hsl(24, 20%, 95%); /* #F5F2F0 */
+        content: attr(data-start);
+        font: bold 65%/1.5 sans-serif;
+        left: .6em;
+        min-width: 1em;
+        padding: 0 .5em;
+        position: absolute;
+        text-align: center;
+        text-shadow: none;
+        top: .4em;
+        vertical-align: .3em;
+    }
+    .line-highlight[data-end]:after {
+        bottom: .4em;
+        content: attr(data-end);
+        top: auto;
+    }
+
+    </style>
+
+</head>
+
+<body lang='en'>
+
+
+
+<div id='source'>
+
+    <h1>Signup Form Example Source</h1>
+    <pre class='language-markup'>
+        <code class='language-markup'>
+&lt;!-- Look how nice and clean this html is! --&gt;
+&lt;div id='signup-form'&gt;
+
+    &lt;h1&gt;Generic Signup Form&lt;/h1&gt;
+
+    &lt;label for='username'&gt;Username&lt;/label&gt;
+    &lt;input id=&quot;username&quot; type='text' placeholder='Username'&gt;&lt;/input&gt;
+
+    &lt;label for='email'&gt;Email&lt;/label&gt;
+    &lt;input id=&quot;email&quot; type='text' placeholder='Email'&gt;&lt;/input&gt;
+
+    &lt;label for='password'&gt;Password&lt;/label&gt;
+    &lt;input id=&quot;password&quot; type='password' placeholder='Password'&gt;&lt;/input&gt;
+
+    &lt;label for='password-confirm'&gt;Confirm Password&lt;/label&gt;
+    &lt;input id=&quot;password-confirm&quot; type='password' placeholder='Confirm Password'&gt;&lt;/input&gt;
+
+    &lt;div style='text-align: center'&gt;
+        &lt;button id='signup-button'&gt;Sign Up&lt;/button&gt;
+    &lt;/div&gt;
+
+&lt;/div&gt;
+
+        </code>
+    </pre>
+
+    <pre class='language-javascript'>
+        <code class='language-javascript'>
+
+/* And here is the ThatValidator configuration that powers it */
+var validator = new ThatValidator('#signup-form', {
+
+    fields: {
+
+        'input': {
+
+            validations: function(field)
+            {
+                var errors = [];
+
+                if(field.value.length == 0)
+                    errors.push('Field is required.');
+
+                return errors;
+            },
+
+            /* Called when the field is defocused or the user stops typing and the field does not pass validations*/
+            onError: function(field, errors)
+            {
+                //these functions are not provided in ThatValidator.js, but feel free to use and abuse them!
+                addClass(field, 'error');
+                removeClass(field, 'valid');
+                addErrorLabel(field, errors);
+            },
+
+            /* Same as onError except the field validated succesfully */
+            onValid: function(field)
+            {
+                removeClass(field, 'error');
+                addClass(field, 'valid');
+                removeErrorLabel(field);
+            }
+        },
+
+        '#username': function(field) {
+
+            var errors = [];
+
+            if(field.value.length < 3)
+                errors.push('Username must be at least 3 characters.');
+
+            return errors;
+
+        },
+
+        '#email': function(field) {
+
+            var errors = [];
+
+            if(!/[^@]?@[^@]+?\.[^@]?/.test(field.value))
+                errors.push('Please enter a valid email.');
+
+            return errors;
+        },
+
+        '#password': function(field) {
+
+            var errors = [];
+
+            if(field.value.length < 6)
+                errors.push("Password must be at least 6 characters.");
+
+            if(!/[^a-zA-Z]/.test(field.value))
+                errors.push("Password must contain a symbol or number.");
+
+            if(errors.length == 2)
+                errors = ["Password must be at least 6 characters and contain a symbol or number."];
+
+            return errors;
+
+        },
+
+        '#password-confirm': {
+
+            validations: function(field)
+            {
+                var errors = [];
+
+                if(field.value !== field.parentNode.password.value)
+                    errors.push("Passwords do not match.");
+
+                return errors;
+            }
+
+        },
+
+    }
+});
+
+
+/* Plus some additional functions */
+
+function addErrorLabel(field, errors)
+{
+    var errorSpan = field.nextSibling;
+    var parent = field.parentNode;
+
+    if(!errorSpan || (errorSpan.nodeName.toLowerCase() !== 'label' && !hasClass(errorSpan, 'error')))
+    {
+        errorSpan = document.createElement('span');
+        parent.insertBefore(errorSpan, field.nextSibling);
+        errorSpan.className = 'error';
+    }
+
+    errorSpan.textContent = errors.join(' ');
+}
+
+function removeErrorLabel(field)
+{
+    var parent = field.parentNode;
+    var errorSpan = parent.querySelector('#'+field.id+' + span.error');
+    if(errorSpan)
+        parent.removeChild(errorSpan);
+}
+
+function hasClass(el, name) {
+    if(!el)
+        return;
+    return new RegExp('(\\s|^)'+name+'(\\s|$)').test(el.className);
+}
+
+function addClass(el, name)
+{
+    if(!hasClass(el, name)) { el.className += (el.className ? ' ' : '') +name; }
+}
+
+
+function removeClass(el, name)
+{
+    if(hasClass(el, name)) {
+        el.className=el.className.replace(new RegExp('(\\s|^)'+name+'(\\s|$)'),' ').replace(/^\s+|\s+$/g, '');
+    }
+}
+        </code>
+    </pre>
+
+
+</div>
+
+<div id='signup-form'>
+
+    <h1>Signup Form Example</h1>
+
+    <label for='username'>Username</label>
+    <input id="username" type='text' placeholder='Username'></input>
+
+    <label for='email'>Email</label>
+    <input id="email" type='text' placeholder='Email'></input>
+
+    <label for='password'>Password</label>
+    <input id="password" type='password' placeholder='Password'></input>
+
+    <label for='password-confirm'>Confirm Password</label>
+    <input id="password-confirm" type='password' placeholder='Confirm Password'></input>
+
+    <div style='text-align: center'>
+        <button id='signup-button'>Sign Up</button>
+    </div>
+
+</div>
+
+<div id='notes'>
+    <ul>
+        <li>This is a basic sign up form with simple error handling. You can customize how the the errors are handled in any way you need.</li>
+        <li>Notice the difference in the password errors if you type too short a password, versus a password with no symbols or numbers, or both.</li>
+        <li>This is essentially a slimmed down version of the trial signup form <a href='http://axosoft.com/get-started?ref=ThatValidatorExample'>we use</a>. Check it out to see even more cool things you can do with ThatValidator.</li>
+    </ul>
+</div>
+
+
+<script src='/js/vendor/ThatValidator.js'></script>
+<script src='/js/vendor/Prism.js'></script>
+<script>
+
+(function() {
+
+    function init()
+    {
+
+         var validator = new ThatValidator('#signup-form', {
+
+            fields: {
+
+                'input': {
+
+                    validations: function(field)
+                    {
+                        var errors = [];
+
+                        if(field.value.length == 0)
+                            errors.push('Field is required.');
+
+                        return errors;
+                    },
+
+                    /* Called when the field is defocused or the user stops typing and the field does not pass validations*/
+                    onError: function(field, errors)
+                    {
+                        addClass(field, 'error');
+                        removeClass(field, 'valid');
+                        addErrorLabel(field, errors);
+                    },
+
+                    /* Same as onError except the field validated succesfully */
+                    onValid: function(field)
+                    {
+                        removeClass(field, 'error');
+                        addClass(field, 'valid');
+                        removeErrorLabel(field);
+                    }
+                },
+
+                '#username': function(field) {
+
+                    var errors = [];
+
+                    if(field.value.length < 3)
+                        errors.push('Username must be at least 3 characters.')
+
+                    return errors;
+
+                },
+
+                '#email': function(field) {
+
+                    var errors = [];
+
+                    if(!/[^@]?@[^@]+?\.[^@]?/.test(field.value))
+                        errors.push('Please enter a valid email.');
+
+                    return errors;
+                },
+
+                '#password': function(field) {
+
+                    var errors = [];
+
+                    if(field.value.length < 6)
+                        errors.push("Password must be at least 6 characters.");
+
+                    if(!/[^a-zA-Z]/.test(field.value))
+                        errors.push("Password must contain a symbol or number.");
+
+                    if(errors.length == 2)
+                        errors = ["Password must be at least 6 characters and contain a symbol or number."];
+
+                    return errors;
+
+                },
+
+                '#password-confirm': {
+
+                    validations: function(field)
+                    {
+                        var errors = [];
+
+                        if(field.value !== field.parentNode.password.value)
+                            errors.push("Passwords do not match.");
+
+                        return errors;
+                    }
+
+                },
+
+
+
+            }
+         });
+
+    }
+
+    function addErrorLabel(field, errors)
+    {
+        var errorSpan = field.nextSibling;
+        var parent = field.parentNode;
+
+        if(!errorSpan || (errorSpan.nodeName.toLowerCase() !== 'label' && !hasClass(errorSpan, 'error')))
+        {
+            errorSpan = document.createElement('span');
+            parent.insertBefore(errorSpan, field.nextSibling);
+            errorSpan.className = 'error';
+        }
+
+        errorSpan.textContent = errors.join(' ');
+    }
+
+    function removeErrorLabel(field)
+    {
+        var parent = field.parentNode;
+        var errorSpan = parent.querySelector('#'+field.id+' + span.error');
+        if(errorSpan)
+            parent.removeChild(errorSpan);
+    }
+
+    function hasClass(el, name) {
+        if(!el)
+            return;
+        return new RegExp('(\\s|^)'+name+'(\\s|$)').test(el.className);
+    }
+
+    function addClass(el, name)
+    {
+        if(!hasClass(el, name)) { el.className += (el.className ? ' ' : '') +name; }
+    }
+
+
+    function removeClass(el, name)
+    {
+        if(hasClass(el, name)) {
+            el.className=el.className.replace(new RegExp('(\\s|^)'+name+'(\\s|$)'),' ').replace(/^\s+|\s+$/g, '');
+        }
+    }
+
+ window.onload = init;
+
+})();
+
+</script>
+
+</body>
+
+</html>

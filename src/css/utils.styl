@@ -1,0 +1,233 @@
+
+///////////
+//
+///  General Stuff
+//
+/////////////
+
+.fr
+    float right
+
+
+.r
+    position absolute
+    right 0
+    top 0
+
+.fl
+    float left
+
+.l
+    position absolute
+    left 0
+    top 0
+
+.cf
+  *zoom 1
+  &:before, &:after
+    content " "
+    display table
+    line-height 0
+  &:after
+    clear both
+
+.o-hid
+    overflow hidden
+
+.tal
+    text-align left !important
+
+.tac
+    text-align center !important
+    &.c > *
+        text-align center
+
+.tar
+    text-align right  !important
+
+.vam
+    vertical-align middle
+
+.p-rel
+    position relative
+
+.d-i
+    display inline
+
+.d-ib
+    display inline-block
+
+.d-b
+    display block
+
+.d-n
+    display none
+
+.nowrap
+    white-space nowrap
+
+.faded
+    opacity 0 !important
+
+// image styles
+
+img.responsive // borrowing from bootstrap 3
+    display block
+    height auto
+    max-width 100%
+    width unquote('100% \9')
+    margin-left auto
+    margin-right auto
+
+video.responsive
+    display block
+    width 100%
+    height auto
+
+img.bordered // add a border to images
+    border 3px solid transparent
+    box-shadow 0 1px 3px rgba(0,0,0,0.2)
+
+img.tac
+    display block
+    margin-left auto
+    margin-right auto
+
+//margins with text
+p, ul, ol, dl
+    + img
+        margin-top 1.6em * 1.6
+img +
+    p, ul, ol, dl
+        margin-top 1.6em
+
+///////////
+//
+///  Media Stuff
+//
+/////////////
+
+
+@media $bp-mobile-small
+    .hidden.mobile-small
+        display none
+
+@media $bp-mobile
+    .hidden.mobile
+        display none
+
+@media $bp-tablet
+    .hidden.tablet
+        display none
+
+@media $bp-desktop
+    .hidden.desktop
+        display none
+
+@media $bp-desktop-wide
+    .hidden.desktop-wide
+        display none
+
+
+///////////
+//
+///  Margins
+//
+/////////////
+
+//may want to make this em based
+$xs = 5px
+$small = 10px
+$medium = 30px
+$large = 60px
+$xl = 90px
+
+// XS
+.maxs
+    margin $xs
+
+.mtxs
+    margin-top $xs
+
+.mrxs
+    margin-right $xs
+
+.mbxs
+    margin-bottom $xs
+
+.mlxs
+    margin-left $xs
+
+// SMALL
+.mas
+    margin $small
+
+.mts
+    margin-top $small
+
+.mrs
+    margin-right $small
+
+.mbs
+    margin-bottom $small
+
+.mls
+    margin-left $small
+
+// MEDIUM
+
+.mam
+    margin $medium
+
+.mtm
+    margin-top $medium
+
+.mrm
+    margin-right $medium
+
+.mbm
+    margin-bottom $medium
+
+.mlm
+    margin-left $medium
+
+// LARGE
+.mal
+    margin $large
+
+.mtl
+    margin-top $large
+
+.mrl
+    margin-right $large
+
+.mbl
+    margin-bottom $large
+
+.mll
+    margin-left $large
+
+// XL
+.maxl
+    margin $xl
+
+.mtxl
+    margin-top $xl
+
+.mrxl
+    margin-right $xl
+
+.mbxl
+    margin-bottom $xl
+
+.mlxl
+    margin-left $xl
+
+
+.mz
+    margin 0 !important
+
+
+
+
+
