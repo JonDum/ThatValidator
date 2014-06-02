@@ -5,7 +5,7 @@
 |   ThatValidator.js
 |
 |   Site:  http://axosoft.github.com/ThatValidator
-|   Author: Jonathan Dumaine 
+|   Author: Jonathan Dumaine
 |   Version: 1.0.0
 |   License: MIT
 |
@@ -218,7 +218,7 @@
                     if(result && isArray(result))
                         errors = errors.concat(result);
 
-                    if(!asyncValidationPending && i == localHandlers.length - 1)
+                    if(!asyncValidationPending && i == (localHandlers.length - 1))
                         promise.resolve(errors)
 
                 }
@@ -281,21 +281,10 @@
         {
             var self = this;
 
-            var runHandlersExec = function(errors) {
+            if(!isFunction(callback))
+                callback = K;
 
-                if(runHandlers === true)
-                {
-                    if(!errors || errors.length == 0)
-                        self.setFieldValid(field);
-                    else
-                    if(errors.length > 0)
-                        self.setFieldInvalid(field, errors);
-                }
-
-                if(isFunction(callback) && i == self.fields.length - 1)
-                    callback(self.isValid());
-
-            };
+            var processedFields = [];
 
             if(field && isElement(field) && self.fields.indexOf(field) > 1)
             {
@@ -306,7 +295,31 @@
                 for(var i = 0; i < self.fields.length; i++)
                 {
                     var field = self.fields[i];
-                    self.runLocalHandlers('validations', field).then(runHandlersExec)
+
+                    var runHandlersExec = (function(field) {
+
+                        return function(errors) {
+
+                            if(runHandlers === true)
+                            {
+                                if(!errors || errors.length == 0)
+                                    self.setFieldValid(field);
+                                else
+                                if(errors.length > 0)
+                                    self.setFieldInvalid(field, errors);
+                            }
+
+                            if(processedFields.indexOf(field) == -1)
+                                processedFields.push(field);
+
+                            if(processedFields.length == self.fields.length)
+                                callback(self.isValid());
+
+                        }
+
+                    })(field);
+
+                    self.runLocalHandlers('validations', field).then(runHandlersExec);
                 }
             }
 
