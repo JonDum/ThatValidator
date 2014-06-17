@@ -114,7 +114,7 @@ var myValidator = new ThatValidator('#myForm', {
 })	
 ```
 
-This is very powerful because `validations` functions overlap and stack. For example, you could apply a validation on a `.required` class that just checks for a minimum field length, then do additional validations specific to each field. Errors will stack and you can display the errors to the user in whatever way you like.
+This is very powerful because `validations` functions overlap and stack. For example, you could apply a validation on all fields with a `.required` class that just checks for a minimum field length, then do additional validations specific to each field. Errors will stack and you can display the errors to the user in whatever way you like.
 
 ###### Asynchronous Validations
 
@@ -175,7 +175,7 @@ var myValidator = new ThatValidator('#myForm', {
 ### API
 
 
-**`.validate(callback, runHandlers /*optional*/, field/*optional*/)`**
+**`.validate(callback, runHandlers /* optional */, field /* optional */)`**
 
 Go through the form and validate each field. Calls callback when it is finished. 
 
@@ -193,7 +193,7 @@ validator.validate(function(isValid) {
 `field` (default `undefined`) if you only want `.validate()` to work on a single field instead of the whole form. Array of fields not supported at this time.
 
 
-**`validator.isValid(field /*optional*/)`**
+**`.isValid(field /* optional */)`**
 
 Returns a Boolean of the *immediate* state of the form or a single field without running any validations. If you want to revalidate the form and then check if it is valid, it is better to use `.validate()`
 
