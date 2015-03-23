@@ -2,23 +2,42 @@
 Powerful and extensible javascript form validation that doesn't suck. 
 
 ## About
-Form validation isn't hard to hack together, but for complicated forms it can quickly become a mess. There's a definite benefit to keeping your event listeners organized and managing all the focus, blur, keypress, and keyup events.
+Form validation isn't hard to hack together, but for complicated forms it can
+quickly become a mess. There's a definite benefit to keeping your event
+listeners organized and managing all the focus, blur, keypress, and keyup
+events. ThatValidator is just that: ultra lightweight (1.25kb gzip/min!),
+fast, and easy-to-use form validation.
 
-Visit http://jondum.github.io/ThatValidator for a pretty thing to look at it.
+Visit http://jondum.github.io/ThatValidator for a pretty thing to look at.
 
 
 ##  Installation
 
 Include ThatValidator on your page however you like.
 
-```javascript
-<script src='js/ThatValidator.min.js'></script>
+NPM:
+
+```
+npm install ThatValidator --save
 ```
 
+
+CommonJS
+```javascript
+var ThatValidator = require('ThatValidator');
+```
+
+AMD
 ```javascript
 require('/ThatValidator.js', function(ThatValidator){
-   //do stuff
+   ...
 ));
+```
+
+If you're still living in 2004:
+
+```javascript
+<script src='js/ThatValidator.min.js'></script>
 ```
 
 
@@ -34,7 +53,7 @@ The end goal is for your form code to be contained in a single configuration obj
 
 `var myValidator = new ThatValidator('#myForm', config);`
 
-Note: the first parameter does not have to be a `<form>` element. It can be any container element.
+Note: the first parameter does not have to be a `<form>` element. It can be any container element reference or string.
 
 
 ##### Configuring
@@ -64,7 +83,7 @@ var myValidator = new ThatValidator('#myForm', {
 })	
 ```
 
-For each key in fields, the value can either be an object with additional keys for configuration or a function as a shorthand for defining validations only.
+For each key in `fields`, the value can either be an object with additional keys for configuration or a function as a shorthand for defining validations only.
 
 ```javascript 
 var myValidator = new ThatValidator('#myForm', {
@@ -138,11 +157,11 @@ var myValidator = new ThatValidator('#myForm', {
 })	
 ```
 
-**Important:** ThatValidator assumes a field has an async callback when it returns nothing. This is why it is important to always return an array for non-asynchronous fields.
+**Important:** ThatValidator assumes it should wait for an async callback when a `field` function explicitly returns `undefined`. This is why it is important to always return an array for non-asynchronous fields.
 
 ##### Handlers
 
-You can supply additional functions to each fields key to run on various events. Supported events are `onError`, `onValid`, `onFocus`, `onBlur`, `onKeyUp`, `onKeyPress`. Like validation functions, these events overlap with other entries in `fields`. Meaning you can define a global handler for all inputs so you do not need to repeat code and then have an additonal, more specific handler where needed. 
+You can supply additional functions to each `fields` key to run on various events. Supported events are `onError`, `onValid`, `onFocus`, `onBlur`, `onKeyUp`, `onKeyPress`. Like validation functions, these events overlap with other entries in `fields`. Meaning you can define a global handler for all inputs so you do not need to repeat code and then have an additonal, more specific handler where needed. 
 
 ```javascript 
 var myValidator = new ThatValidator('#myForm', {
@@ -177,7 +196,7 @@ var myValidator = new ThatValidator('#myForm', {
 
 **`.validate(callback, runHandlers /* optional */, field /* optional */)`**
 
-Go through the form and validate each field. Calls callback when it is finished. 
+Go through the form and validate each field. Calls `callback` when it is finished. 
 
 ```javascript
 validator.validate(function(isValid) {
