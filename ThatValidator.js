@@ -451,13 +451,16 @@
     ||                                 \
     /**====-----========================*/
 
-    function isArray(obj) {
-        return (Object.prototype.toString.call(obj) === '[object Array]')
-    }
+
+    
 
     function querySelectorAllArray(selector, element)
     {
         return Array.prototype.slice.call((element || document).querySelectorAll(selector));
+    }
+
+    function isArray(obj) {
+        return (Object.prototype.toString.call(obj) === '[object Array]')
     }
 
     function isElement(o){
@@ -471,25 +474,7 @@
         return (typeof o === 'function')
     }
 
-    function hasClass(el, name) {
-        if(!el)
-            return;
-        return new RegExp('(\\s|^)'+name+'(\\s|$)').test(el.className);
-    }
-
-    function addClass(el, name)
-    {
-        if(!hasClass(el, name)) { el.className += (el.className ? ' ' : '') +name; }
-    }
-
-
-    function removeClass(el, name)
-    {
-        if(hasClass(el, name)) {
-            el.className=el.className.replace(new RegExp('(\\s|^)'+name+'(\\s|$)'),' ').replace(/^\s+|\s+$/g, '');
-        }
-    }
-
+    // If you use lodash and really care about every KB, replace this with `var debounce = require('lodash/function/deounce');`
     function debounce(func, wait) {
         var timeout, args, context, timestamp;
 
@@ -518,14 +503,6 @@
         }
     }
 
-    function sizeOf(obj)
-    {
-        var size = 0, key;
-        for (key in obj) {
-            if (obj.hasOwnProperty(key)) size++;
-        }
-        return size;
-    }
 
     //tiny Promise impl for internal use
     function Promise() {
