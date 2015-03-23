@@ -18,7 +18,7 @@ Include ThatValidator on your page however you like.
 NPM:
 
 ```
-npm install ThatValidator --save
+npm install thatvalidator --save
 ```
 
 
@@ -29,7 +29,7 @@ var ThatValidator = require('ThatValidator');
 
 AMD
 ```javascript
-require('/ThatValidator.js', function(ThatValidator){
+require('ThatValidator', function(ThatValidator) {
    ...
 ));
 ```
