@@ -5,7 +5,7 @@
 
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>ThatValidator</title>
+    <title>ThatValidator: Javascript Form Validation That Doesn't Suck</title>
 
 
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,700,300italic|Josefin+Sans:100' rel='stylesheet' type='text/css'>
@@ -315,7 +315,18 @@ var myValidator = new ThatValidator('#myForm', {
 
         <div class='wrap'>
             <ol>
-                <li><a href='https://github.com/Axosoft/ThatValidator/blob/master/ThatValidator.js'>Download</a> ThatValidator.js and include it on your page (AMD/CJS is supported).</li>
+                <li>
+                    Get it from NPM 
+                    <br/>
+                    <code class='language-javascript'><pre>npm install thatvalidator --save</pre></code>
+                    <br/>
+                    or grab it <a href='https://github.com/Axosoft/ThatValidator/blob/master/ThatValidator.js'>here</a>                       
+                </li>
+                <li>
+                    Require it
+                    <br/>
+                    <code class='language-javascript'><pre>var ThatValidator = require('ThatValidator');</pre></code>
+                </li>
                 <li>Create a validator for each form and start setting it up.<br/><code class='language-javascript' style='margin-left: 0'><pre>var myValidator = new ThatValidator(form, config)</pre></code><br/><small><em>tip</em>: you can reuse common validations across validators!</small></li>
                 <li>Use <code class='language-javascript'><pre>myValidator.isValid()</pre></code> to check if your form has been filled and has no errors &amp; use <code class='language-javascript'><pre>myValidator.validate(callback)</pre></code> to run through the validations again.</li>
                     <li>That's it. The rest is up to you. Check out the <a href='/ThatValidator/examples/generic-signup'>examples</a> for some sweet use cases, or help out by submitting <a href='https://github.com/Axosoft/ThatValidator/issues'>issues</a>, features requests, and pull requests.</li>
@@ -329,8 +340,7 @@ var myValidator = new ThatValidator('#myForm', {
 
 <footer id='made-by'>
 
-        Lovingly made by
-        <a href='http://axosoft.com?ref=ThatValidator' class='axosoft-logo' alt='Axosoft'>Axosoft</a>
+        Made with &lt;3
 
 </footer>
 
