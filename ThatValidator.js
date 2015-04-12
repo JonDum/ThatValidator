@@ -4,7 +4,7 @@
 |
 |   ThatValidator.js
 |
-|   Site:  http://axosoft.github.com/ThatValidator
+|   Site:  http://jondum.github.com/ThatValidator
 |   Author: Jonathan Dumaine
 |   Version: 1.0.0
 |   License: MIT
@@ -16,14 +16,14 @@
 
     "use strict";
 
-    var K = function() {};
+    var noop = function() {};
 
     var defaultConfig = {
 
-        completed: K,
-        onFocus: K,
-        onBlur: K,
-        onKeyPress: K,
+        completed: noop,
+        onFocus: noop,
+        onBlur: noop,
+        onKeyPress: noop,
 
         fields: { }
     };
@@ -140,6 +140,9 @@
 
             self.runLocalHandlers('onError', field, errors);
 
+            // for preventing multiple config.complete() calls
+            self._refilled = true;
+
         },
 
         setFieldValid: function(field)
@@ -157,8 +160,12 @@
                 self.validFields.push(field);
 
             //if entire form is valid & filled
-            if(self.isValid())
+            if(self.isValid() && self._refilled)
+            {
                 config.completed(field);
+                self._refilled = false;
+            }
+
         },
 
         /**
@@ -538,4 +545,3 @@
 
 
 })(window, document);
-
