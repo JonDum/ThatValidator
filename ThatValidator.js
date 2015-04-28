@@ -141,7 +141,7 @@
             if(index > -1)
                 self.validFields.splice(index, 1);
 
-            self.runLocalHandlers('onError', field, errors);
+            self.runLocalHandlers('onError', field, errors, self.errors);
 
             // for preventing multiple config.complete() calls
             self._refilled = true;
