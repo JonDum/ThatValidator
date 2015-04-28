@@ -31,6 +31,9 @@
 
     ThatValidator.prototype = {
 
+        /* Used to stop multiple calls to onComplete if the state hasn't changed */
+        _refilled: true,
+            
         /**====-----========================
         ||                                 /
         |
