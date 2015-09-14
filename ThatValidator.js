@@ -289,9 +289,9 @@
             {
                 for(var i = 0; i < self.fields.length; i++)
                 {
-                    var field = self.fields[i];
+                    var field2 = self.fields[i];
 
-                    var runHandlersExec = (function(field) {
+                    var runHandlersExec = (function(field2) {
 
                         return function(errors) {
 
@@ -347,10 +347,10 @@
 
                 for(var i = 0; i < elements.length; i++)
                 {
-                    var field2 = elements[i];
+                    var field = elements[i];
 
                     //if the element has not already been found
-                    if(self.fields.indexOf(field2) == -1)
+                    if(self.fields.indexOf(field) == -1)
                     {
                         self.fields.push(field);
                         self.handlers.push([handlers]);
