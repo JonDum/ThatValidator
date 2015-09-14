@@ -24,6 +24,7 @@
         onFocus: noop,
         onBlur: noop,
         onKeyPress: noop,
+        debounceDelay: 1000,
 
         fields: { }
     };
@@ -83,7 +84,7 @@
             if((e.which || e.keyCode) == 9)
                 return;
 
-            // we don't want to run validations on every sigle key click,
+            // we don't want to run validations on every single key click,
             // so we delay it until they've stopped typing for a moment
             self.runValidationsDebounced(target);
 
@@ -94,28 +95,12 @@
         {
             var self = this, target = e.target;
 
-            // we don't want to run validations on every sigle key click,
+            // we don't want to run validations on every single key click,
             // so we delay it until they've stopped typing for a moment
             self.runValidationsDebounced(target);
 
             self.runLocalHandlers('onKeyPress', target, e);
         },
-
-        runValidationsDebounced: debounce(function(target)
-        {
-            var self = this;
-
-            self.runLocalHandlers('validations', target)
-            .then(function(errors) {
-
-                if(errors && errors.length > 0)
-                    self.setFieldInvalid(target, errors);
-                else
-                    self.setFieldValid(target);
-
-            });
-
-        }, 1000),
 
 
         /**====-----========================
@@ -304,9 +289,9 @@
             {
                 for(var i = 0; i < self.fields.length; i++)
                 {
-                    var field = self.fields[i];
+                    var field2 = self.fields[i];
 
-                    var runHandlersExec = (function(field) {
+                    var runHandlersExec = (function(field2) {
 
                         return function(errors) {
 
@@ -430,6 +415,22 @@
         self.validFields = [ ];
 
         self.init();
+
+        self.runValidationsDebounced = debounce(function(target)
+        {
+            var self = this;
+
+            self.runLocalHandlers('validations', target)
+            .then(function(errors) {
+
+                if(errors && errors.length > 0)
+                    self.setFieldInvalid(target, errors);
+                else
+                    self.setFieldValid(target);
+
+            });
+
+        }, self.config.debounceDelay);
 
     };
 
