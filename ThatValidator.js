@@ -24,6 +24,7 @@
         onFocus: noop,
         onBlur: noop,
         onKeyPress: noop,
+        debounceDelay: 1000,
 
         fields: { }
     };
@@ -83,7 +84,7 @@
             if((e.which || e.keyCode) == 9)
                 return;
 
-            // we don't want to run validations on every sigle key click,
+            // we don't want to run validations on every single key click,
             // so we delay it until they've stopped typing for a moment
             self.runValidationsDebounced(target);
 
@@ -94,28 +95,12 @@
         {
             var self = this, target = e.target;
 
-            // we don't want to run validations on every sigle key click,
+            // we don't want to run validations on every single key click,
             // so we delay it until they've stopped typing for a moment
             self.runValidationsDebounced(target);
 
             self.runLocalHandlers('onKeyPress', target, e);
         },
-
-        runValidationsDebounced: debounce(function(target)
-        {
-            var self = this;
-
-            self.runLocalHandlers('validations', target)
-            .then(function(errors) {
-
-                if(errors && errors.length > 0)
-                    self.setFieldInvalid(target, errors);
-                else
-                    self.setFieldValid(target);
-
-            });
-
-        }, 1000),
 
 
         /**====-----========================
@@ -362,10 +347,10 @@
 
                 for(var i = 0; i < elements.length; i++)
                 {
-                    var field = elements[i];
+                    var field2 = elements[i];
 
                     //if the element has not already been found
-                    if(self.fields.indexOf(field) == -1)
+                    if(self.fields.indexOf(field2) == -1)
                     {
                         self.fields.push(field);
                         self.handlers.push([handlers]);
@@ -430,6 +415,22 @@
         self.validFields = [ ];
 
         self.init();
+
+        self.runValidationsDebounced = debounce(function(target)
+        {
+            var self = this;
+
+            self.runLocalHandlers('validations', target)
+            .then(function(errors) {
+
+                if(errors && errors.length > 0)
+                    self.setFieldInvalid(target, errors);
+                else
+                    self.setFieldValid(target);
+
+            });
+
+        }, self.config.debounceDelay);
 
     };
 
