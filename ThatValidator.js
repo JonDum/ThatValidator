@@ -300,7 +300,8 @@
 
             if(field && isElement(field) && self.fields.indexOf(field) > 1)
             {
-                self.runLocalHandlers('validations', field).then(runHandlersExec);
+                self.runLocalHandlers('validations', field)
+                    .then(createRunHandlersExec(field));
             }
             else
             {
