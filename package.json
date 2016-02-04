@@ -1,6 +1,6 @@
 {
   "name": "thatvalidator",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Powerful and extensible javascript form validation that doesn't suck.",
   "main": "ThatValidator.js",
   "repository": {
