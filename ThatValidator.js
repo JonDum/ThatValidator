@@ -280,41 +280,35 @@
                 callback = K;
 
             var processedFields = [];
+            var createRunHandlersExec = function(field) {
+                return function(errors) {
+                    if(runHandlers === true)
+                    {
+                        if(!errors || errors.length == 0)
+                            self.setFieldValid(field);
+                        else if(errors.length > 0)
+                            self.setFieldInvalid(field, errors);
+                    }
+
+                    if(processedFields.indexOf(field) == -1)
+                        processedFields.push(field);
+
+                    if(processedFields.length == self.fields.length)
+                        callback(self.isValid());
+                }
+            };
 
             if(field && isElement(field) && self.fields.indexOf(field) > 1)
             {
-                self.runLocalHandlers('validations', field).then(runHandlersExec);
+                self.runLocalHandlers('validations', field)
+                    .then(createRunHandlersExec(field));
             }
             else
             {
                 for(var i = 0; i < self.fields.length; i++)
                 {
-                    var field2 = self.fields[i];
-
-                    var runHandlersExec = (function(field2) {
-
-                        return function(errors) {
-
-                            if(runHandlers === true)
-                            {
-                                if(!errors || errors.length == 0)
-                                    self.setFieldValid(field);
-                                else
-                                if(errors.length > 0)
-                                    self.setFieldInvalid(field, errors);
-                            }
-
-                            if(processedFields.indexOf(field) == -1)
-                                processedFields.push(field);
-
-                            if(processedFields.length == self.fields.length)
-                                callback(self.isValid());
-
-                        }
-
-                    })(field);
-
-                    self.runLocalHandlers('validations', field).then(runHandlersExec);
+                    self.runLocalHandlers('validations', self.fields[i])
+                        .then(createRunHandlersExec(self.fields[i]));
                 }
             }
 
