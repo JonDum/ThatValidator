@@ -1,12 +1,21 @@
 # ThatValidator
 Powerful and extensible javascript form validation that doesn't suck. 
 
+## Demo
+
+http://jondum.github.io/ThatValidator/examples/generic-signup
+
 ## About
+
 Form validation isn't hard to hack together, but for complicated forms it can
-quickly become a mess. There's a definite benefit to keeping your event
-listeners organized and managing all the focus, blur, keypress, and keyup
-events. ThatValidator is just that: ultra lightweight (1.25kb gzip/min!),
-fast, and easy-to-use form validation.
+quickly become a mess. More importantly, so many validator and ui frameworks
+get the events wrong! For a good UX, validations must occur onblur *and* on change
+_only after some typing has occurred_. There's nothing more annoying than a
+field giving you errors before you've even finished typing!
+
+ThatValidator gets it right for an optmial user experience while working with
+any UI framework and being under 1.25kb gzip!
+
 
 Visit http://jondum.github.io/ThatValidator for a pretty thing to look at.
 
