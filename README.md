@@ -14,7 +14,7 @@ _only after some typing has occurred_. There's nothing more annoying than a
 field giving you errors before you've even finished typing!
 
 ThatValidator gets it right for an optmial user experience while working with
-any UI framework and being under 1.25kb gzip!
+any UI framework and being under 1.25kb gzip and **no dependancies*!
 
 
 Visit http://jondum.github.io/ThatValidator for a pretty thing to look at.
